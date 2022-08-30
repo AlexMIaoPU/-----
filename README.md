@@ -1,4 +1,6 @@
 # Das Spiel
+🖐 - ✌ - 👊
+
 Paper scissors stone game built into a Chrome extension
 
 Ever had the thought of playing an instant Paper scissors stone game with a bot when surfing the web?

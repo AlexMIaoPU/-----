@@ -1,0 +1,56 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    background-image: url("images/Flag.jpg");
+    background-size: cover;
+    font-weight: bold;
+    font-size: 200%;
+    color: rgb(247, 238, 238);
+    text-align: center;
+}
+
+button {
+    background: #30b095;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid #f6c976;
+    font-weight: bold;
+}
+
+#Header {
+    margin-top: 7%;
+    font-size: 210%;
+}
+
+#paper-btn {
+    background: #0055A4;
+    color: #5f9341;
+    margin-right: 20px;
+}
+#scissors-btn {
+    background: white;
+    padding: 10px 24px;
+    color: #5f9341;
+}
+#stone-btn {
+    background: #EF4135;
+    color: #5f9341;
+    margin-left: 20px;
+}
+
+#versus-el {
+    margin-top: 30;
+    text-align: center;
+}
+
+#versus-el-player {
+    display: inline-block;
+    color: #ca0f0f;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+#versus-el-bot {
+    display: inline-block;
+    color: #051298;
+    vertical-align: middle;
+}

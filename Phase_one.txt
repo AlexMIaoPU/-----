@@ -1,0 +1,7 @@
+Phase one goals and features:
+
+    - A skeleton game that works as a html file
+    - Ability for user to choose between the P, S and S obviously
+    - Randomly generated bot's choice of PSS
+    - Competition between bot and player, able to decide who wins
+    - Display game result

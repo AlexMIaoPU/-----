@@ -1,0 +1,4 @@
+Phase two goals and features:
+
+    - Convert into a chrome extension
+    - More furnishing and tweaks

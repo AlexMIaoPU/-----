@@ -3,24 +3,30 @@ body {
     background-image: url("images/Flag.jpg");
     background-size: cover;
     font-weight: bold;
-    font-size: 200%;
+    font-size: 150%;
     color: rgb(247, 238, 238);
     text-align: center;
+    min-width: 400px;
 }
 
 button {
     background: #30b095;
     color: white;
     padding: 10px 20px;
-    border: 1px solid #f6c976;
+    border: 1px solid #ffd387;
     font-weight: bold;
+    margin-bottom: 5%;
 }
 
 #Header {
     margin-top: 7%;
-    font-size: 210%;
+    font-size: 200%;
 }
 
+#funni_quote {
+    color: #fe2807;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 #paper-btn {
     background: #0055A4;
     color: #5f9341;

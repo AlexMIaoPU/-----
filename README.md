@@ -13,7 +13,7 @@ Well I don't care what you think, and such a game is comming right now!
 
 
 
-How do I add this extension?
+# How do I add this extension?
 
 Download this entire folder
 

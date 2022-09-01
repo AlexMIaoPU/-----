@@ -1,0 +1,5 @@
+Phase three goals and features:
+
+    - Memorising past results of gameplay
+    - displaying overall stats of the player against bot (win rate)
+    - persistence

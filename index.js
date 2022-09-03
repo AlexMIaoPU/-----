@@ -13,11 +13,14 @@ const reset_btn = document.getElementById("reset-btn")
 let game_started = false
 let player_picked = false
 let round_over = true
+// -ive means lost consecutively, +ive means win, 0 is draw
+let game_history = 0
 
 // Elements to be displayed
 const result_el = document.getElementById("result-el")
 const versus_el_player = document.getElementById("versus-el-player")
 const versus_el_bot = document.getElementById("versus-el-bot")
+const Game_history_el = document.getElementById("game-histr-el")
 
 // Some constants
 
@@ -54,6 +57,38 @@ function bots_move() {
     return Math.floor(Math.random() * 3);
 }
 
+function update_history(current_result) {
+    if (current_result === 1) {
+        if (game_history <= 0) {
+            game_history = 1
+        }
+        else {
+            game_history += 1
+        }
+    }
+    else if (current_result === 0) {
+        game_history = 0
+    }
+    else if (current_result === -1) {
+        if (game_history > 0) {
+            game_history = -1
+        }
+        else {
+            game_history += -1
+        }
+    }
+
+    if (game_history > 0) {
+        Game_history_el.innerText = `U have won ${game_history} time(s) in a row, Hoorahhh!`
+    }
+    if (game_history < 0) {
+        Game_history_el.innerText = `U have lost ${-game_history} time(s) in a row to a bot, smh`
+    }
+    if (game_history === 0) {
+        Game_history_el.innerText = "Drawwwwwwwwwwwwwwwww"
+    }
+}
+
 // Render the game
 // Takes player's move as input
 // When player have already moved in this round, make no response
@@ -86,6 +121,7 @@ function render_game(players_move) {
         result_el.innerText = "The machine has proven to be superior, ya lose"
     }
 
+    update_history(result)
     // reset btn is shown after player makes move
     reset_btn.style.visibility = 'visible';
 }
@@ -99,6 +135,7 @@ reset_btn.addEventListener("click", function() {
     versus_el_bot.innerText = ""
     result_el.innerText = ""
     reset_btn.style.visibility = 'hidden'
+    Game_history_el.innerText = ""
 })
 
 // Playing the game, one choice VS another

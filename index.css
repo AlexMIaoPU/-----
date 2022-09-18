@@ -12,10 +12,9 @@ body {
 button {
     background: #30b095;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 10px;
     border: 1px solid #ffd387;
     font-weight: bold;
-    margin-bottom: 5%;
 }
 
 #Header {
@@ -31,20 +30,22 @@ button {
     background: #0055A4;
     color: #5f9341;
     margin-right: 20px;
+    width: 14%;
 }
 #scissors-btn {
     background: white;
-    padding: 10px 24px;
     color: #5f9341;
+    width: 14%;
 }
 #stone-btn {
     background: #EF4135;
     color: #5f9341;
     margin-left: 20px;
+    width: 14%;
 }
 
 #versus-el {
-    margin-top: 30;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -59,4 +60,9 @@ button {
     display: inline-block;
     color: #051298;
     vertical-align: middle;
+}
+
+#game-stats-el {
+    color: rgb(221, 193, 91);
+    font-size: 100%;
 }

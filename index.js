@@ -21,6 +21,18 @@ const result_el = document.getElementById("result-el")
 const versus_el_player = document.getElementById("versus-el-player")
 const versus_el_bot = document.getElementById("versus-el-bot")
 const Game_history_el = document.getElementById("game-histr-el")
+const Game_stats_el = document.getElementById("game-stats-el")
+
+
+// local storage
+// Initialise everything if player have not played ever before
+
+if (localStorage.getItem("num_played") === null) {
+    localStorage.setItem("num_played", 0);
+    localStorage.setItem("num_win", 0);
+    localStorage.setItem("num_draw", 0);
+    localStorage.setItem("num_lose", 0);
+}
 
 // Some constants
 
@@ -57,6 +69,9 @@ function bots_move() {
     return Math.floor(Math.random() * 3);
 }
 
+
+// Display the win/lose streak of the current game, also display player's overall stat
+
 function update_history(current_result) {
     if (current_result === 1) {
         if (game_history <= 0) {
@@ -87,6 +102,12 @@ function update_history(current_result) {
     if (game_history === 0) {
         Game_history_el.innerText = "Drawwwwwwwwwwwwwwwww"
     }
+
+    // Display the overall win_rate of the player
+    let num_win = parseFloat(localStorage.getItem("num_win"))
+    let num_played = parseFloat(localStorage.getItem("num_played"))
+    let win_rate = (num_win/num_played)*100
+    Game_stats_el.innerText = `Your overll winrate is ${win_rate.toFixed(2)}%`
 }
 
 // Render the game
@@ -111,22 +132,38 @@ function render_game(players_move) {
 
     if (result === 1) {
         result_el.innerText = "The Human has triumphed! Nice Play"
+        // update player stat
+        let num_win = parseInt(localStorage.getItem("num_win"))
+        localStorage.setItem("num_win", num_win += 1)
+
     }
 
     if (result === 0) {
         result_el.innerText = "No side came on top in this epic duel"
+        // update player stat
+        let num_draw = parseInt(localStorage.getItem("num_draw"))
+        localStorage.setItem("num_draw", num_draw += 1)
     }
 
     if (result === -1) {
         result_el.innerText = "The machine has proven to be superior, ya lose"
+        // update player stat
+        let num_lose = parseInt(localStorage.getItem("num_lose"))
+        localStorage.setItem("num_lose", num_lose += 1)
     }
 
+    let num_played = parseInt(localStorage.getItem("num_played"))
+    localStorage.setItem("num_played", num_played += 1)
     update_history(result)
     // reset btn is shown after player makes move
     reset_btn.style.visibility = 'visible';
 }
 
 
+// reset the page to be ready for a new game
+// clears out the result of the previous game
+// hide the reset button
+// hide the game history and overall stat
 reset_btn.addEventListener("click", function() {
 
     player_picked = false
@@ -136,6 +173,7 @@ reset_btn.addEventListener("click", function() {
     result_el.innerText = ""
     reset_btn.style.visibility = 'hidden'
     Game_history_el.innerText = ""
+    Game_stats_el.innerText = ""
 })
 
 // Playing the game, one choice VS another
